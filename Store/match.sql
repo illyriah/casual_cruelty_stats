@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS match;
+CREATE TABLE match
+(
+	match_id serial PRIMARY KEY,
+	map_id integer NOT NULL,
+	match_start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+	match_end_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

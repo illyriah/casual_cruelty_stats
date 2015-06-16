@@ -1,0 +1,47 @@
+<!doctype html>
+<div class=page>
+<table border="1">
+	<tr>
+		<th>Average Max Players</th>
+		<th>Average Min Players</th>
+		<th>Average Players Start</th>
+		<th>Average Players End</th>
+		<th>Map Name</th>
+		<th>Times Played</th>
+	</tr>
+	{% for average in averages %}
+		<tr>
+			<td>{{ average.avg_max_players }}</td>
+			<td>{{ average.avg_min_players}}</td>
+			<td>{{ average.avg_players_start }} </td>
+			<td>{{ average.avg_players_end }}</td>
+			<td>{{ average.map_name }}</td>
+			<td>{{ average.times_played }} </td>
+		</tr>
+	{% endfor %}
+<table>
+<br />
+<br />
+<table border="1">
+	<tr>
+		<th>Max Players</th>
+		<th>Min Players</th>
+		<th>Players Start</th>
+		<th>Players End</th>
+		<th>Map Name</th>
+		<th>Match Start</th>
+		<th>Match End</th>
+	</tr>
+	{% for entry in entries %}
+		<tr>
+			<td>{{ entry.max_players }}</td>
+			<td>{{ entry.min_players}}</td>
+			<td>{{ entry.players_start }} </td>
+			<td>{{ entry.players_end }}</td>
+			<td>{{ entry.map_name }}</td>
+			<td>{{ entry.match_start }}</td>
+			<td>{{ entry.match_end }}</td>
+		</tr>
+	{% endfor %}
+<table>
+</div>

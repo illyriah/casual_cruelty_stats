@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS map;
+CREATE TABLE map
+(
+	map_id serial PRIMARY KEY,
+	map_name VARCHAR(15) UNIQUE NOT NULL
+);
