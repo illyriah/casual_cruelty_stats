@@ -1,6 +1,6 @@
 drop type if exists get_match_summaries_result cascade;
 
-create type get_match_summaries_result AS (max_players int, min_players int, players_start int, players_end int, map_name varchar, match_start timestamp, match_end timestamp, match_length interval);
+create type get_match_summaries_result AS (max_players int, min_players int, players_start int, players_end int, map_name varchar, match_start timestamp, match_end timestamp, total_connections int, match_length interval);
 
 CREATE OR REPLACE FUNCTION public.get_match_summaries()
 RETURNS SETOF get_match_summaries_result
@@ -54,6 +54,9 @@ BEGIN
 
 		result.match_start := date_trunc('minute', match_row.match_start_time);
 		result.match_end := date_trunc('minute', match_row.match_end_time);
+
+		result.total_connections := (select count(*) from player_connection WHERE tsrange(match_row.match_start_time, match_row.match_end_time) @> player_connection.connection_start_time);
+
 
 		result.match_length := (match_row.match_end_time - match_row.match_start_time);
 

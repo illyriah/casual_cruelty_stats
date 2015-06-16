@@ -24,10 +24,10 @@ def show_entries():
     cur = g.conn.cursor()
     cur.execute("select * from get_match_summaries();")
 
-    entries = [dict(max_players=row[0], min_players=row[1], players_start=row[2], players_end=row[3], map_name=row[4], match_start=row[5], match_end=row[6]) for row in cur.fetchall()]
+    entries = [dict(max_players=row[0], min_players=row[1], players_start=row[2], players_end=row[3], map_name=row[4], match_start=row[5], match_end=row[6], total_connections=row[7]) for row in cur.fetchall()]
 
     cur.execute("select * from get_match_averages();")
-    averages = [dict(avg_max_players=row[0], avg_min_players=row[1], avg_players_start=row[2], avg_players_end=row[3], map_name=row[4], times_played=row[5]) for row in cur.fetchall()]
+    averages = [dict(avg_max_players=row[0], avg_min_players=row[1], avg_players_start=row[2], avg_players_end=row[3], map_name=row[4], times_played=row[5], avg_total_connections=row[6]) for row in cur.fetchall()]
 
     return render_template('show_entries.html', entries=entries, averages=averages) 
 

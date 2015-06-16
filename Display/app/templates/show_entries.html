@@ -7,6 +7,7 @@
 		<th>Average Players Start</th>
 		<th>Average Players End</th>
 		<th>Map Name</th>
+		<th>Total Connections</th>
 		<th>Times Played</th>
 	</tr>
 	{% for average in averages %}
@@ -16,6 +17,7 @@
 			<td>{{ average.avg_players_start }} </td>
 			<td>{{ average.avg_players_end }}</td>
 			<td>{{ average.map_name }}</td>
+			<td>{{ average.avg_total_connections }}</td>
 			<td>{{ average.times_played }} </td>
 		</tr>
 	{% endfor %}
@@ -29,6 +31,7 @@
 		<th>Players Start</th>
 		<th>Players End</th>
 		<th>Map Name</th>
+		<th>Total Connections</th>
 		<th>Match Start</th>
 		<th>Match End</th>
 	</tr>
@@ -39,6 +42,7 @@
 			<td>{{ entry.players_start }} </td>
 			<td>{{ entry.players_end }}</td>
 			<td>{{ entry.map_name }}</td>
+			<td>{{ entry.total_connections }}</td>
 			<td>{{ entry.match_start }}</td>
 			<td>{{ entry.match_end }}</td>
 		</tr>
